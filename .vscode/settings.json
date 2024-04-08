@@ -1,0 +1,9 @@
+{
+    "explorer.excludeGitIgnore": false,
+    "github.gitAuthentication": true,
+    "search.useGlobalIgnoreFiles": false,
+    "gitlens.graph.experimental.minimap.enabled": false,
+    "git-graph.repository.sign.tags": false,
+    "gitlens.advanced.caching.enabled": true,
+    "gitlens.virtualRepositories.enabled": true
+}
