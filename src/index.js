@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import './index.css'
 
 
 const pizzaData = [
@@ -50,23 +51,70 @@ const pizzaData = [
 
 function App() {
     return (
-        <>
-            <h1>Hello React!</h1>
-            <Pizza />
-            <Pizza />
-            <Pizza />
-        </>
+        <div className='container'>
+            <Header />
+            <Menu />         
+            <Footer />   
+            
+        </div>
 
     )
 }
 
-function Pizza() {
+
+function Header(){
+    return(
+        <div className='header'>
+            <h1>Fast React Hot Pizza Co.</h1>
+        </div>
+    )
+}
+function Footer(){
+    
+    const hour = new Date().getHours();
+    const openHour = 12;
+    const CloseHour = 22;
+    const isOpen= hour >= openHour && hour <=  CloseHour;
+    // console.log(isOpen)
+    return(
+        <div className='footer'>
+            <footer>{new Date().toLocaleTimeString()} We're Currently Open</footer>
+        </div>
+    )
+}
+
+function Menu(porps){
+    return(
+        <div className='menu'>
+            <h2>Our Menu</h2>
+            <Pizza
+             name="Pizza Spinaci"
+             ingredients="Tomato, mozarella, spinach, and ricotta cheese"     
+             photoName="pizzas/spinaci.jpg"
+             price={10}
+            />
+            <Pizza
+             name="Pizza Funghi"
+             ingredients="Tomato, mozarella, mushrooms, and onion"     
+             photoName="pizzas/funghi.jpg"
+             price={12}
+            />
+            
+        </div>
+    )
+}
+
+function Pizza(props) {
+    console.log(props)
     return (
-        <>
-            <img src='pizzas/spinaci.jpg' alt='pizza spinaci' />
-            <h2>Pizza Spinaci</h2>
-            <p>Tomato, mozarella, spinach, and ricotta cheese</p>
-        </>
+        <div className='pizza'>
+            <img src={props.photoName} alt={props.name} />
+            <div>
+                <h2>{props.name}</h2>
+                <p>{props.ingredients}</p>
+                <span>{props.price}$</span>
+            </div>
+        </div>
     )
 }
 
